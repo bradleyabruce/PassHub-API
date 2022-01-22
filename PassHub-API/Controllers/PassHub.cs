@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
+using PassHub_API.Services;
 
 namespace PassHub_API.Controllers
 {
@@ -8,10 +8,11 @@ namespace PassHub_API.Controllers
 	{
 		[HttpGet]
 		// Add Validate Tag
-		[Route("GetAllPasswords")]
-		public ActionResult GetAllPasswords(string UserID)
+		[Route("GetAllLogins")]
+		public ActionResult GetAllLogins(string userID)
 		{
-			var test = "hello";
+			var service = new PassHubService();
+			service.GetAllPasswords(userID);
 			return new EmptyResult();
 		}
 	}

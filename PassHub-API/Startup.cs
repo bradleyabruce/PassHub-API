@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 
 namespace PassHub_API
 {
@@ -42,6 +36,13 @@ namespace PassHub_API
 			app.UseSwaggerUI(x =>
 			{
 				x.SwaggerEndpoint("/swagger/v1/swagger.json", "PassHub");
+			});
+
+			app.UseEndpoints(endpoints =>
+			{
+				endpoints.MapControllerRoute(
+					   name: "default",
+					   pattern: "{controller}/{action}/{id?}");
 			});
 		}
 	}
