@@ -1,4 +1,5 @@
-﻿using PassHub_API.Models;
+﻿using PassHub_API.DataAccess;
+using PassHub_API.Models;
 using System.Collections.Generic;
 
 namespace PassHub_API.Services
